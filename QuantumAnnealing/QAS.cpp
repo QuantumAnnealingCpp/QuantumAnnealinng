@@ -240,3 +240,14 @@ void QAS::printGammaHistory()
 		cout << endl;
 	}
 }
+
+void QAS::saveGammaHistory()
+{
+	ofstream myfile;
+	myfile.open("gammaHistory.txt");
+	for (size_t i = 0; i < Gsteps; i++)
+	{
+		myfile << gammaHistory[0][i] << "\t" << gammaHistory[1][i] << endl;
+	}
+	myfile.close();
+}

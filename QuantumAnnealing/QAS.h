@@ -6,6 +6,7 @@
 #include <time.h>
 #include <iostream>
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
@@ -48,6 +49,7 @@ public:
 	void magAvgOverTime();
 	void simulationGammaRange();
 	void printGammaHistory();
+	void saveGammaHistory();
 };
 
 #endif 

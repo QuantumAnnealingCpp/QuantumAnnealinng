@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QuantumAnnealing", "QuantumAnnealing\QuantumAnnealing.vcxproj", "{7DE4CB60-A986-470F-8317-09A742E09296}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication2", "..\ConsoleApplication2\ConsoleApplication2\ConsoleApplication2.vcxproj", "{BFD48908-9EF5-4169-8183-47C7DFAF7918}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RecursionRelation", "..\ConsoleApplication2\RecursionRelation\RecursionRelation.vcxproj", "{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +25,27 @@ Global
 		{7DE4CB60-A986-470F-8317-09A742E09296}.Release|x64.Build.0 = Release|x64
 		{7DE4CB60-A986-470F-8317-09A742E09296}.Release|x86.ActiveCfg = Release|Win32
 		{7DE4CB60-A986-470F-8317-09A742E09296}.Release|x86.Build.0 = Release|Win32
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Debug|x64.ActiveCfg = Debug|x64
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Debug|x64.Build.0 = Debug|x64
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Debug|x86.ActiveCfg = Debug|Win32
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Debug|x86.Build.0 = Debug|Win32
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Release|x64.ActiveCfg = Release|x64
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Release|x64.Build.0 = Release|x64
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Release|x86.ActiveCfg = Release|Win32
+		{BFD48908-9EF5-4169-8183-47C7DFAF7918}.Release|x86.Build.0 = Release|Win32
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Debug|x64.ActiveCfg = Debug|x64
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Debug|x64.Build.0 = Debug|x64
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Debug|x86.ActiveCfg = Debug|Win32
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Debug|x86.Build.0 = Debug|Win32
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Release|x64.ActiveCfg = Release|x64
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Release|x64.Build.0 = Release|x64
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Release|x86.ActiveCfg = Release|Win32
+		{367962F3-DBF9-4DD6-AF44-7F8A672DEE21}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4F612D69-505A-4467-BDC7-7D34EC2E93E4}
+		SolutionGuid = {E54DFFB8-B96A-47A6-B461-75FC7D6A3871}
 	EndGlobalSection
 EndGlobal

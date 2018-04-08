@@ -56,7 +56,8 @@ void QAS::flipSpin() {
 	
 	//calculates the energy difference for the Metropolis algorithm
 	double deltaEnergy = energyDifferenceNN(tmpi, tmpk);
-
+	//double deltaEnergy = energyDifferenceArbitraryJ(tmpi, tmpk);
+	
 	//Metropolis algorithm
 	if (deltaEnergy < 0)
 	{
@@ -85,6 +86,28 @@ void QAS::printMagnetization()
 void QAS::printMagAvgTime()
 {
 	cout << "MagAvgTime = " << magAvgTime << endl;
+}
+
+double QAS::energyDifferenceArbitraryJ(int n, int m)
+{
+	int tmp = 0;
+	for (size_t i = 0; i < N; i++)
+	{
+		tmp += J[n][i] * spins[i][m];
+	}
+
+	if (n != 0 && m != 0)
+		return 2.0 *(spins[n][m] * tmp/ ((double)M) + 0.5 / beta * log(1.0 / tanh(beta*gamma / M)) *
+			spins[n][m] * (spins[n][m - 1] + spins[n][(m + 1) % M]));
+	else if (n == 0 && m != 0)
+		return 2.0 * (spins[n][m] * tmp/ ((double)M) + 0.5 / beta * log(1.0 / tanh(beta*gamma / M)) *
+			spins[n][m] * (spins[n][m - 1] + spins[n][(m + 1) % M]));
+	else if (m == 0 && n != 0)
+		return 2.0 * (spins[n][m] * tmp/ ((double)M) + 0.5 / beta * log(1.0 / tanh(beta*gamma / M)) *
+			spins[n][m] * (spins[n][M - 1] + spins[n][(m + 1) % M]));
+	else if (n == 0 && m == 0)
+		return 2.0 * (spins[n][m] * tmp/ ((double)M) + 0.5 / beta * log(1.0 / tanh(beta*gamma / M)) *
+			spins[n][m] * (spins[n][M - 1] + spins[n][(m + 1) % M]));
 }
 
 double QAS::energyDifferenceNN(int n, int m)

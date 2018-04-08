@@ -14,7 +14,7 @@ MQAS::MQAS(int numberofsystems, int M, double T, double gamma, int NT, int snapN
 	mqas.resize(numberOfSystems);
 	for (size_t i = 0; i < numberOfSystems; i++)
 	{
-		mqas[i] = QAS(n0,  M, T, gamma, NT, snapNT, kB, Gsteps, Tsteps);
+		mqas[i] = QAS(n0,  M, T, gamma, (int)(NT * pow(2,i) ), snapNT, kB, Gsteps, Tsteps);
 		n0 *= 2;
 	}
 
@@ -26,6 +26,7 @@ void MQAS::NRangeGamma()
 	for (size_t i = 0; i < numberOfSystems; i++)
 	{
 		mqas[i].simulationGammaRange();
+		cout << i << "-th system is done" << endl;
 		for (size_t j = 0; j < mqas[i].Gsteps; j++)
 		{
 			gammaHistory[0][j] = mqas[i].gammaHistory[0][j];

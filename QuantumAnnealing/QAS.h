@@ -41,6 +41,7 @@ public:
 	void flipSpin(); //decides whether to change the state of a random spin according to Metropolis algorithm
 	void printMagnetization();
 	void printMagAvgTime();
+	double energyDifferenceArbitraryJ(int n, int m);
 	void simulation();
 	double simulation(double T, double gamma);
 	//function uses Monthe Carlo method for searching the minimum of the effective hamiltonian

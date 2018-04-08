@@ -43,6 +43,7 @@ public:
 	void printMagAvgTime();
 	double energyDifferenceArbitraryJ(int n, int m);
 	void simulation();
+	void simulation(double t); //different functionality
 	double simulation(double T, double gamma);
 	//function uses Monthe Carlo method for searching the minimum of the effective hamiltonian
 	double energyDifferenceNN(int n, int m); //calculates the energy difference taking into consideration only the nearest neighbours
@@ -51,6 +52,7 @@ public:
 	void simulationGammaRange();
 	void printGammaHistory();
 	void saveGammaHistory();
+	void annealing();
 };
 
 #endif 

@@ -143,6 +143,15 @@ void QAS::simulation() {
 	magAvgOverTime();
 }
 
+void QAS::simulation(double t) {
+	
+	for (size_t i = 0; i < NT; i++)
+	{
+		flipSpin();		
+	}
+
+}
+
 double QAS::simulation(double t, double gammaa) {
 	T = t;
 	gamma = gammaa;
@@ -273,4 +282,25 @@ void QAS::saveGammaHistory()
 		myfile << gammaHistory[0][i] << "\t" << gammaHistory[1][i] << endl;
 	}
 	myfile.close();
+}
+
+void QAS::annealing() {
+	
+	vector<double> tRange;
+	tRange.resize(Tsteps, 0);
+	double tau = pow(0.05 / T, 1.0 / (double)Tsteps);
+
+	tRange[0] = T;
+	for (size_t i = 1; i < Tsteps; i++)
+	{
+		tRange[i] = tRange[i - 1] * tau;
+	}
+	
+	simulation();
+	for (size_t i = 0; i < Tsteps; i++)
+	{
+		simulation(tRange[i]);
+		//cout << tRange[i] << endl;
+	}
+
 }

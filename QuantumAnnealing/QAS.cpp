@@ -144,10 +144,20 @@ void QAS::simulation() {
 }
 
 void QAS::simulation(double t) {
-	
+	magHistory.clear();
 	for (size_t i = 0; i < NT; i++)
 	{
 		flipSpin();		
+		magHistory.push_back(magnetization / (N*M));
+	}
+
+}
+
+void QAS::simulationMag(double t) {
+
+	for (size_t i = 0; i < NT; i++)
+	{
+		flipSpin();
 	}
 
 }
@@ -284,11 +294,10 @@ void QAS::saveGammaHistory()
 	myfile.close();
 }
 
-void QAS::annealing() {
-	
+void QAS::annealing(double tk) {
 	vector<double> tRange;
 	tRange.resize(Tsteps, 0);
-	double tau = pow(0.05 / T, 1.0 / (double)Tsteps);
+	double tau = pow(tk / T, 1.0 / (double)Tsteps);
 
 	tRange[0] = T;
 	for (size_t i = 1; i < Tsteps; i++)
@@ -297,10 +306,86 @@ void QAS::annealing() {
 	}
 	
 	simulation();
-	for (size_t i = 0; i < Tsteps; i++)
+	for (size_t i = 0; i < Tsteps - 1; i++)
 	{
 		simulation(tRange[i]);
 		//cout << tRange[i] << endl;
 	}
+	simulationMag(tRange[Tsteps - 1]);
+	magAvgOverTime();
+}
 
+void QAS::annealing(double tk, double gammaa)
+{
+	gamma = gammaa;
+	annealing(tk);
+}
+
+void QAS::annealigTempGammaRange(int nt, int ngamma)
+{
+	annealingMatrix.clear();
+	annealingMatrix.resize(nt, vector<double>(ngamma, 0));
+
+	vector<double> gammaRange;
+	gammaRange.resize(ngamma, 0);
+	double tmp = gamma;
+	double dgamma = gamma / ((double)ngamma);
+
+	for (size_t i = 0; i < Gsteps; i++)
+	{
+		gammaRange[i] = tmp;
+		tmp -= dgamma;
+
+	}
+
+	vector<double> tRange;
+	tRange.resize(nt, 0);
+	tmp = T;
+	double dt = T / ((double)nt);
+
+	for (size_t i = 0; i < nt; i++)
+	{
+		tRange[i] = tmp;
+		tmp -= dt;
+
+	}
+
+	for (size_t i = 0; i < ngamma; i++)
+	{
+		for (size_t j = 0; j < nt; j++)
+		{
+			annealing(tRange[j], gammaRange[i]);
+			annealingMatrix[j][i] = abs(magAvgTime);
+		}
+		cout << i + 1 << " / " << ngamma << endl;
+	}
+
+}
+
+void QAS::saveAnnealingHistory(int nt, int ngamma)
+{
+	ofstream myfile;
+	myfile.open("annealingMatrix.txt");
+	for (size_t i = 0; i < ngamma; i++)
+	{
+		for (size_t j = 0; j < nt; j++)
+		{
+			myfile << annealingMatrix[j][i] << "\t";
+		}
+		myfile << endl;
+	}
+	myfile.close();
+}
+
+void QAS::printAnnealingHistory(int nt, int ngamma)
+{
+
+	for (size_t i = 0; i < ngamma; i++)
+	{
+		for (size_t j = 0; j < nt; j++)
+		{
+			cout << annealingMatrix[j][i] << "\t";
+		}
+		cout << endl;
+	}
 }

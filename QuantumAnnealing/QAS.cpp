@@ -267,6 +267,7 @@ void QAS::simulationGammaRange() {
 		magTmp = simulation(T, gammaRange[i]);
 		gammaHistory[0][i] = gammaRange[i];
 		gammaHistory[1][i] = abs(magTmp);
+		cout << i << " / " << Gsteps << endl;
 	}
 		
 }

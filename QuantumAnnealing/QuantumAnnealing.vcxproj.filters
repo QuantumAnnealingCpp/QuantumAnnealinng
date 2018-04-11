@@ -33,6 +33,9 @@
     <ClInclude Include="MQAS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="QTS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MQAS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QTS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

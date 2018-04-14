@@ -32,12 +32,14 @@ public:
 	int Gsteps; //number of evaluation points of gamma for the | <s> | = f(gamma) plot
 	int Tsteps; //number of times temperature is decreased during annealing
 	int whereIs1;
+	int bestPath;
 
 	QTS();
 	QTS(int n, int m, double t, double gammaa, int nt, int snapnt, double kb);
 	QTS(int n, int m, double t, double gammaa, int nt, int snapnt, int gsteps);
 	void spinsInit();
 	void printSpins();
+	void saveSpins();
 	void simulation();
 	void flipSpin();
 	void changeSpins(int tmpi, int tmpk);
@@ -46,8 +48,11 @@ public:
 	double spinsEnergy(int tmpi, int k);
 	void printPathLength();
 	void simulationGammaRange(double gammak = 0.05);
+	void saveLocations();
+	void saveBestPath();
 	~QTS();
 	void printJ();
+	void saveJ();
 	void JInit();
 };
 

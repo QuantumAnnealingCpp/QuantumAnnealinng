@@ -81,6 +81,21 @@ void QTS::printJ()
 	}
 }
 
+void QTS::saveJ()
+{
+	ofstream myfile;
+	myfile.open("J.txt");
+	for (size_t i = 0; i < N; i++)
+	{
+		for (size_t j = 0; j < N; j++)
+		{
+			myfile << J[i][j] << "\t";
+		}
+		myfile << endl;
+	}
+	myfile.close();
+}
+
 void QTS::spinsInit() {
 	srand(time(NULL));
 	
@@ -131,6 +146,26 @@ void QTS::printSpins()
 		}
 		cout <<endl<< "---------------------";
 		cout << endl;
+	}
+}
+
+void QTS::saveSpins()
+{
+	ofstream myfile;
+	myfile.open("pahtsTaken.txt");
+	int newsize = N * N;
+	for (size_t i = 0; i < M; i++)
+	{
+		for (size_t j = 0; j < N; j++)
+		{
+			for (size_t k = 0; k < N; k++)
+			{
+				myfile << spins[k*N + j][i] << "\t";
+
+			}
+			myfile << endl;
+		}
+		//cout << endl;
 	}
 }
 
@@ -264,6 +299,7 @@ void QTS::printPathLength() {
 	double energy = 0;
 	int iCurr = 0;
 	int iNext = 0;
+	double bestPathLen = 10000000;
 	for (size_t k = 0; k < M; k++)
 	{
 		energy = 0;
@@ -290,8 +326,13 @@ void QTS::printPathLength() {
 			}
 			energy += J[iNext][iCurr];
 		}
+		if (energy < bestPathLen) {
+			bestPathLen = energy;
+			bestPath = k;
+		}
 		cout << "Len. of path " << k << ": " << energy << endl;
 	}
+	cout << endl << "Best path is: " << bestPath << ". Len. of best path: " << bestPathLen << endl;
 }
 
 void QTS::simulationGammaRange(double gammak) {
@@ -310,4 +351,31 @@ void QTS::simulationGammaRange(double gammak) {
 		simulation();
 		cout << i << " / " << Gsteps << endl;
 	}
+}
+
+void QTS::saveLocations() {
+	ofstream myfile;
+	myfile.open("points.txt");
+	
+	for (size_t i = 0; i < locationsX.size(); i++)
+	{
+		myfile << locationsX[i] << "\t" << locationsY[i] << endl;
+	}
+	myfile.close();
+}
+
+void QTS::saveBestPath() {
+	ofstream myfile;
+	myfile.open("bestPath.txt");
+
+	for (size_t j = 0; j < N; j++)
+	{
+		for (size_t k = 0; k < N; k++)
+		{
+			myfile << spins[k*N + j][bestPath] << "\t";
+
+		}
+		myfile << endl;
+	}
+	myfile.close();
 }

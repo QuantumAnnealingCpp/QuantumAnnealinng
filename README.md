@@ -57,6 +57,12 @@ Points are chosen at rendom (in the unit square), hence your output may be diffe
 
 To open the solution VS 2017 edition is required. No special software is required. 
 
+## Open MPI setup
+
+Installing Open MPI on Windows, Visual Studio configuration:	https://blogs.technet.microsoft.com/windowshpc/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program/
+
+1. build
+2. run: mpiexec -n NUMBER_OF_PROCESSES OpenMPI_Test.exe
 
 ## Contributing
 

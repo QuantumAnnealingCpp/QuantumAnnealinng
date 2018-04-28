@@ -54,9 +54,12 @@ One does not have certainty whether it is the shortes possible path. However it 
 
 Points are chosen at random (in the unit square), hence your output may be different.
 
+
 ![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=30NT=5000.png?raw=true)
 
-The graph was obtained with Gamma decreasing from 10 to 0.05 in 30 steps for different number of spins in Suzuki-Trotter dimension
+![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=5NT=5000.png?raw=true)
+
+The graphs show evolution of shortest path in relation to number of spins in Suzuki-Trotter dimension. They were obtained with gamma decreasing from 10 to 0.05. The first has been annealed in 30 steps, the latter in 5 steps.
 
 ### Prerequisites
 
@@ -77,4 +80,3 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 * **Paweł Kukliński**  - [pawelkuk](https://github.com/pawelkuk)
 * **Jakub Sobolewski**  - [WelcomeToMyVirtualHome](https://github.com/WelcomeToMyVirtualHome)
-

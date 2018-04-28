@@ -1,5 +1,6 @@
 ## Simulation of quantum annealing and its application for traveling salesman problem
 
+### Simulaton of quantum annealing 
 Suzuki-Trotter formalism maps the quantum problem to a classical one. It is essentially a method to transform a d-dimensional
 quantum Hamiltonian into a (d+1)-dimensional effective classical Hamiltonian. To obtain the effective hamiltonian one starts with Transverse Ising
 Hamiltonian:
@@ -27,7 +28,7 @@ The point at which the average magnetization |M| > 0 starts approximate at gamma
 ![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/M16DOBRYWYKRES.png?raw=true)
 
 
-
+### Traveling Salesman Problem
 
 After rewritng the problem in a way which is useful for solving the traveling salesman problem we obtain the goal funtion which can be interpreted as a length of path. However, one gets an
 additional term which takes into account "quantum effects":
@@ -51,12 +52,25 @@ int Gsteps		= 20; //number of evaluation points of gamma for the | <s> | = f(gam
 
 One does not have certainty whether it is the shortes possible path. However it is a local mnimum of the goal function.
 
-Points are chosen at rendom (in the unit square), hence your output may be different.
+Points are chosen at random (in the unit square), hence your output may be different.
+
+
+![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=30NT=5000.png?raw=true)
+
+![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=5NT=5000.png?raw=true)
+
+The graphs show evolution of shortest path in relation to number of spins in Suzuki-Trotter dimension. They were obtained with gamma decreasing from 10 to 0.05. The first has been annealed in 30 steps, the latter in 5 steps.
 
 ### Prerequisites
 
 To open the solution VS 2017 edition is required. No special software is required. 
 
+## Open MPI setup
+
+Installing Open MPI on Windows, Visual Studio configuration:	https://blogs.technet.microsoft.com/windowshpc/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program/
+
+1. build
+2. run: mpiexec -n NUMBER_OF_PROCESSES OpenMPI_Test.exe
 
 ## Contributing
 
@@ -66,4 +80,3 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 * **Paweł Kukliński**  - [pawelkuk](https://github.com/pawelkuk)
 * **Jakub Sobolewski**  - [WelcomeToMyVirtualHome](https://github.com/WelcomeToMyVirtualHome)
-

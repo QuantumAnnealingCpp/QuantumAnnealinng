@@ -1,5 +1,6 @@
 ## Simulation of quantum annealing and its application for traveling salesman problem
 
+### Simulaton of quantum annealing 
 Suzuki-Trotter formalism maps the quantum problem to a classical one. It is essentially a method to transform a d-dimensional
 quantum Hamiltonian into a (d+1)-dimensional effective classical Hamiltonian. To obtain the effective hamiltonian one starts with Transverse Ising
 Hamiltonian:
@@ -27,7 +28,7 @@ The point at which the average magnetization |M| > 0 starts approximate at gamma
 ![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/M16DOBRYWYKRES.png?raw=true)
 
 
-#Traveling Salesman Problem
+### Traveling Salesman Problem
 
 After rewritng the problem in a way which is useful for solving the traveling salesman problem we obtain the goal funtion which can be interpreted as a length of path. However, one gets an
 additional term which takes into account "quantum effects":
@@ -55,7 +56,7 @@ Points are chosen at random (in the unit square), hence your output may be diffe
 
 ![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=30NT=5000.png?raw=true)
 
-
+The graph was obtained with Gamma decreasing from 10 to 0.05 in 30 steps for different number of spins in Suzuki-Trotter dimension
 
 ### Prerequisites
 

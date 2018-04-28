@@ -27,7 +27,7 @@ The point at which the average magnetization |M| > 0 starts approximate at gamma
 ![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/M16DOBRYWYKRES.png?raw=true)
 
 
-
+#Traveling Salesman Problem
 
 After rewritng the problem in a way which is useful for solving the traveling salesman problem we obtain the goal funtion which can be interpreted as a length of path. However, one gets an
 additional term which takes into account "quantum effects":
@@ -51,7 +51,11 @@ int Gsteps		= 20; //number of evaluation points of gamma for the | <s> | = f(gam
 
 One does not have certainty whether it is the shortes possible path. However it is a local mnimum of the goal function.
 
-Points are chosen at rendom (in the unit square), hence your output may be different.
+Points are chosen at random (in the unit square), hence your output may be different.
+
+![alt text](https://github.com/QuantumAnnealingCpp/QuantumAnnealinng/blob/develop/Graphs/N=32GammaStart=10Gsteps=30NT=5000.png?raw=true)
+
+
 
 ### Prerequisites
 
